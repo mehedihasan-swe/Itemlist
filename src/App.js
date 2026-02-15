@@ -1,21 +1,53 @@
 
-import { useState } from 'react';
-import './App.css';
-import Titlename from './Titlename';
 
+import { useState } from 'react';
+import Adlist from './Adlist';
+import './App.css';
+import Modal from './Modal';
+
+const data = [
+  {
+    id: 1,
+    title: "i love Javascript",
+    StartDate: "20/8/2016"
+  },
+  {
+    id: 2,
+    title: "i love python",
+    StartDate: "20/8/2017"
+  },
+  {
+    id: 3,
+    title: "i love php",
+    StartDate: "20/8/2018"
+  },
+]
 function App() {
 
-    const [number, setnumber]=useState(1);
-    const handleclick= () => {
-      setnumber(prevState=>prevState+1)
-    }
-      return (
+  const [showmodal, setShowModal]=useState(false);
+
+  return (
     <div className="App">
-     <div>
-      <h1>My name is <br></br></h1>
-      <button onClick={handleclick}>Click Me </button>
-      <Titlename number={number}></Titlename>
-     </div>
+      {
+        data.map(item => (
+          <div key={item.id}>
+            <h2>{item.title}</h2>
+            <h2>{item.StartDate}</h2>
+          </div>
+        ))
+      }
+      <div className="btn_container">
+      <button onClick={(e) => setShowModal(true)}>add List</button>
+      </div>
+
+    {
+      showmodal && 
+      <Modal>
+        <Adlist></Adlist>
+        <button onClick={e => setShowModal(false)}>CLOSE MODAL</button>
+      </Modal>
+    }
+      
     </div>
   );
 }
