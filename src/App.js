@@ -22,14 +22,14 @@ const data = [
     StartDate: "20/8/2018"
   },
 ]
+
 function App() {
-
+  const [list, setList] = useState(data); 
   const [showmodal, setShowModal]=useState(false);
-
   return (
     <div className="App">
       {
-        data.map(item => (
+        list.map(item => (
           <div key={item.id}>
             <h2>{item.title}</h2>
             <h2>{item.StartDate}</h2>
@@ -43,11 +43,10 @@ function App() {
     {
       showmodal && 
       <Modal>
-        <Adlist></Adlist>
+        <Adlist setList={setList}></Adlist>
         <button onClick={e => setShowModal(false)}>CLOSE MODAL</button>
       </Modal>
     }
-      
     </div>
   );
 }
