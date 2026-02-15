@@ -26,11 +26,18 @@ const data = [
 function App() {
   const [list, setList] = useState(data); 
   const [showmodal, setShowModal]=useState(false);
+
+  const handleDelete = (id) => {
+    const filterList = list.filter(item => item.id !== id)
+    setList(filterList)
+  }
+
+
   return (
     <div className="App">
       {
         list.map(item => (
-          <div key={item.id}>
+          <div onClick={() => handleDelete(item.id)} key={item.id}>
             <h2>{item.title}</h2>
             <h2>{item.StartDate}</h2>
           </div>
