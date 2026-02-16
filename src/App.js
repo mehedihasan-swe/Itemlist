@@ -1,9 +1,10 @@
 
 
-import { useState } from 'react';
-import Adlist from './Adlist';
+
+
 import './App.css';
 import Modal from './Modal';
+
 
 const data = [
   {
@@ -24,36 +25,29 @@ const data = [
 ]
 
 function App() {
-  const [list, setList] = useState(data); 
-  const [showmodal, setShowModal]=useState(false);
-
-  const handleDelete = (id) => {
-    const filterList = list.filter(item => item.id !== id)
-    setList(filterList)
-  }
-
 
   return (
     <div className="App">
-      {
-        list.map(item => (
-          <div onClick={() => handleDelete(item.id)} key={item.id}>
-            <h2>{item.title}</h2>
-            <h2>{item.StartDate}</h2>
+      <div className='cardlayout'>
+        <div className='itemlayout'>
+          {
+            data.map(items => (
+              <div key={items.id}>
+                <h2>{items.title}</h2>
+                <h3>{items.StartDate}</h3>
+              </div>
+            ))
+          }
+          <div className='modaldiv'>
+            <button className='btn-modal'>Show Modal</button>
           </div>
-        ))
-      }
-      <div className="btn_container">
-      <button onClick={(e) => setShowModal(true)}>add List</button>
+          <div className='modaldiv'>
+            <Modal>
+              <h2>Children</h2>
+            </Modal>
+            </div>
+        </div>
       </div>
-
-    {
-      showmodal && 
-      <Modal>
-        <Adlist setList={setList}></Adlist>
-        <button onClick={e => setShowModal(false)}>CLOSE MODAL</button>
-      </Modal>
-    }
     </div>
   );
 }
