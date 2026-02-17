@@ -1,31 +1,40 @@
-import React, { useState } from 'react'
+import { useState } from "react"
 
-export default function Adlist({setList}) {
-    const [title, settile]=useState('');
-    const [date, setDate]=useState('');
-    const handlsubmit= (e)=>{
-          e.preventDefault()
+
+export default function Adlist({ setShowModal, setdataItems }) {
+    const [title, setTitle] = useState("")
+    const [date, setDate] = useState("")
+
+
+    const handlesubmit = (e) => {
+        e.preventDefault()
+           //new objects ekta jeta data arary te add hobe 
         const submitedList = {
-            title,
-            StartDate: date,
-            id: Date.now()
+            id: Date.now(),
+            title:title,
+            StartDate: date
         }
-       setList(prevState => [...prevState, submitedList])
-
+        setdataItems(prevState=>[...prevState, submitedList])
+       setShowModal(false)
     }
 
-    
     return (
-        <form onSubmit={handlsubmit}>
+        <form onSubmit={handlesubmit}>
             <label>
-                <span>Which progrraming languge do you like?</span>
-                <input onChange={(e)=>settile(e.target.value)} type="text" placeholder="your title" />
+                <p>Which Programming do you like most?</p>
+                <input type="text" placeholder='name' onChange={(e) => setTitle(e.target.value)} />
             </label>
             <label>
-                <span>When did you start?</span>
-                <input type="date" onChange={(e)=>setDate(e.target.value)}/>
+                <p>When did you start?</p>
+                <input type='date' onChange={(e) => setDate(e.target.value)} />
             </label>
-            <button>Submit</button>
+            <div>
+                <button className="btn-modal">submit</button>
+            </div>
+            <div>
+                <button className="btn-modal" onClick={(e) => setShowModal(false)} >Close Modal</button>
+            </div>
+
         </form>
     )
 }
