@@ -13,35 +13,35 @@ export default function Products() {
     {
       id: 1,
       title: "jacket",
-      img: "./img",
+      image: jacket,
       price: "1200",
       category:"Cloth"
     },
     {
         id: 2,
         title: "Iphone",
-        img: iphone,
+        image: iphone,
         price: "81200",
         category: "Phone"
     },
     {
         id: 3,
         title: "Iphone 10",
-        img: phone,
+        image: phone,
         price: "90000",
         category: "Phone"
     },
     {
         id: 4,
         title: "Apple",
-        img: apple,
+        image: apple,
         price: "180",
         category: "Fruit"
     },
     {
         id: 5,
         title: "Orange",
-        img: orange,
+        image: orange,
         price: "180",
         category: "Fruit"
     },
@@ -51,7 +51,10 @@ export default function Products() {
   return (
     <div>
       <Navbar />
-      <Cards />
+      <div className='parentcard'>
+        <Cards data={data}/>
+      </div>
+   
     </div>
   )
 }

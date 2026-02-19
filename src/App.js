@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Adlist from './Adlist';
 import './App.css';
 import Modal from './Modal';
+import Products from './Components/Products';
 
 const data = [
   {
@@ -69,6 +70,7 @@ function App() {
             </div>
         </div>
       </div>
+      <Products/>
     </div>
   );
 }
