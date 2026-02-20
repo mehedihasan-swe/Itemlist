@@ -144,25 +144,43 @@ input:focus {
 
 .pructs-cards {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
+}
+.pructs-cards .card{
+  gap: 20px;
+  background-color: rgb(230, 228, 255);
+  margin-bottom: 20px;
 }
 
 .pructs-cards .card img{
-  width: 250px;
+  width: 230px;
+  height: 220px;
   border-radius: 4px;
   border: none;
   margin-bottom: 20px;
+  cursor: pointer;
+  transition: .3s all ease;
+  -webkit-transition: .3s all ease;
+  -moz-transition: .3s all ease;
+  -ms-transition: .3s all ease;
+  -o-transition: .3s all ease;
+}
+.pructs-cards .card img:hover{
+  transform: scale(.96);
 }
 
 .parentcard{
   width: 100%;
   background-color: aliceblue;
-  padding: 20px;
+  padding: 0 200px;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 .desbox{
   margin-bottom: 20px;
+  text-align: center;
+  cursor: pointer;
 }
 .desbox p{
   color: #000000;
