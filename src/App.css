@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #000;
+  background-color: #eeeeee;
   color: #fff;
   font-size: 20px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -147,13 +147,14 @@ input:focus {
   justify-content: center;
   gap: 20px;
 }
-.pructs-cards .card{
+
+.pructs-cards .card {
   gap: 20px;
   background-color: rgb(230, 228, 255);
   margin-bottom: 20px;
 }
 
-.pructs-cards .card img{
+.pructs-cards .card img {
   width: 230px;
   height: 220px;
   border-radius: 4px;
@@ -166,24 +167,105 @@ input:focus {
   -ms-transition: .3s all ease;
   -o-transition: .3s all ease;
 }
-.pructs-cards .card img:hover{
+
+.pructs-cards .card img:hover {
   transform: scale(.96);
 }
 
-.parentcard{
+.parentcard {
   width: 100%;
   background-color: aliceblue;
   padding: 0 200px;
   margin-bottom: 20px;
   cursor: pointer;
 }
-.desbox{
+
+.desbox {
   margin-bottom: 20px;
   text-align: center;
   cursor: pointer;
 }
-.desbox p{
+
+.desbox p {
   color: #000000;
   font-size: 17px;
   font-weight: bold;
+}
+
+.container {
+  width: 100%;
+  background-color: #fff;
+  padding: 90px 200px;
+  color: #000;
+}
+
+.btn_container {
+  display: flex;
+  gap: 20px;
+}
+
+.card_container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card_container .card {
+  width: 220px;
+  height: 180px;
+  padding: 30px 0;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: var(--focus-shadow);
+  background-color: aliceblue;
+  text-align: center;
+  cursor: pointer;
+
+}
+
+.card_container .card img {
+  width: 65px;
+  height: 70px;
+}
+
+.title-text {
+  font-size: 32px;
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.prevnext {
+  display: flex !important;
+  justify-content: center !important;
+  margin: 80px 0;
+}
+
+.card_container.mx-5 {
+  width: 800px;
+  display: flex;
+  justify-self: center;
+}
+
+.card-q {
+  text-align: center;
+  background: aliceblue;
+  padding: 50px;
+  margin: 30px;
+}
+.progress {
+  width: 100%;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s ease;
 }

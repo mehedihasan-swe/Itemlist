@@ -47,6 +47,7 @@ export default function Products() {
     }  
   ]
   //Avoid DUplicate value
+  // data theke nav list create korte hobe, card component e image, title, price pathiye card create korte hobe, then filter korte hobe.
 let categoryname = [...new Set(data.map( items => items.category ))];
 const [alldata, setallData] = useState(data);
   return (

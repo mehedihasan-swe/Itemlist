@@ -4,6 +4,10 @@ import Adlist from './Adlist';
 import './App.css';
 import Modal from './Modal';
 import Products from './Components/Products';
+import Firstpage from './Components/Firstpage';
+import Secondpage from './Components/Secondpage';
+import Thirdpage from './Components/Thirdpage';
+import Preview from './Components/Preview';
 
 const data = [
   {
@@ -71,6 +75,10 @@ function App() {
         </div>
       </div>
       <Products/>
+      <Firstpage/>
+      <Secondpage/>
+      <Thirdpage/>
+      <Preview/>
     </div>
   );
 }

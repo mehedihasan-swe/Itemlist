@@ -16,7 +16,7 @@ export default function Navbar({ categoryname, data, setallData }) {
       setallData(data)
     }
 
-    console.log(cname);
+    console.log("name is"+cname);
   }
 
   return (
