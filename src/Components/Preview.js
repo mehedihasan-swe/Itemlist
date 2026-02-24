@@ -1,11 +1,8 @@
 import React from 'react'
 
-export default function Preview() {
+export default function Preview({ setpage, page }) {
     return (
         <div className='container'>
-            <div className="progress">
-                <div className="progress-bar" style={{ width: "30%" }}></div>
-            </div>
             <h2 className='title-text'>Preview Your Survey</h2>
             <div className='card_container-preview'>
                 <div className='card-q'>
@@ -24,7 +21,7 @@ export default function Preview() {
                 </div>
             </div>
             <div className='btn_container prevnext'>
-                <button className='btn-modal'>Prev</button>
+                <button className='btn-modal' onClick={() => setpage(prevPage => prevPage - 1)}>Prev</button>
                 <button className='btn-modal'>Next</button>
             </div>
         </div>

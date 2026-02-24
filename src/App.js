@@ -8,7 +8,7 @@ import Firstpage from './Components/Firstpage';
 import Secondpage from './Components/Secondpage';
 import Thirdpage from './Components/Thirdpage';
 import Preview from './Components/Preview';
-
+import ProgressBar from './Components/shared/progres/ProgressBar';
 const data = [
   {
     id: 1,
@@ -25,7 +25,7 @@ const data = [
     title: "i love php",
     StartDate: "20/8/2018"
   },
-   {
+  {
     id: 4,
     title: "i love Javascript",
     StartDate: "20/8/2016"
@@ -43,11 +43,12 @@ const data = [
 ]
 
 function App() {
-  const[showmodal,setShowModal] = useState(false);
-  const [dataitems, setdataItems]=useState(data);
-  const handleDelete=(id)=>{
+  const [showmodal, setShowModal] = useState(false);
+  const [dataitems, setdataItems] = useState(data);
+  let [page, setpage] = useState(1);
+  const handleDelete = (id) => {
     console.log(id);
-    const filterlistitem=dataitems.filter(item=>item.id !== id);
+    const filterlistitem = dataitems.filter(item => item.id !== id);
     setdataItems(filterlistitem);
   }
   return (
@@ -56,29 +57,44 @@ function App() {
         <div className='itemlayout'>
           {
             dataitems.map(items => (
-              <div className='card-elements' key={items.id} onClick={()=>handleDelete(items.id)}>
+              <div className='card-elements' key={items.id} onClick={() => handleDelete(items.id)}>
                 <h2>{items.title}</h2>
                 <h3>{items.StartDate}</h3>
               </div>
             ))
           }
           <div className='modaldiv'>
-            <button className='btn-modal' onClick={(e)=>setShowModal(true)}>Show Modal</button>
+            <button className='btn-modal' onClick={(e) => setShowModal(true)}>Show Modal</button>
           </div>
           <div className='modaldiv'>
             {
               showmodal && <Modal>
-               <Adlist setShowModal={setShowModal} setdataItems={setdataItems}></Adlist>
+                <Adlist setShowModal={setShowModal} setdataItems={setdataItems}></Adlist>
               </Modal>
             }
-            </div>
+          </div>
         </div>
       </div>
-      <Products/>
-      <Firstpage/>
-      <Secondpage/>
-      <Thirdpage/>
-      <Preview/>
+      <Products />
+
+      <div className='multistep'>
+        <div>
+          <ProgressBar page={page}/>
+       
+        </div>
+        {
+          page === 1 && <Firstpage setpage={setpage} page={page} />
+        }
+        {
+          page === 2 && <Secondpage setpage={setpage} />
+        }
+        {
+          page === 3 && <Thirdpage setpage={setpage} />
+        }
+        {
+          page === 4 && <Preview setpage={setpage} />
+        }
+      </div>
     </div>
   );
 }

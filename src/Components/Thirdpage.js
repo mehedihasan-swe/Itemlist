@@ -2,9 +2,10 @@ import React from 'react'
 import codeabc from "../assets/codeabc.jpg"
 import stacklearner from "../assets/stack.jpg"
 import learnwithsumit from "../assets/learn with sumit.jpg"
-export default function Thirdpage() {
-  return (
-    <div className='container'>
+export default function Thirdpage({ setpage, page }) {
+    return (
+        <div className='container'>
+           
             <h2 className='title-text'>Which Programming CHannel do you Like?</h2>
             <div className='card_container'>
                 <div className='card'>
@@ -21,9 +22,9 @@ export default function Thirdpage() {
                 </div>
             </div>
             <div className='btn_container prevnext'>
-                <button className='btn-modal'>Prev</button>
-                <button className='btn-modal'>Next</button>
+                <button className='btn-modal' onClick={() => setpage(prevPage => prevPage - 1)}>Prev</button>
+                <button className='btn-modal' onClick={() => setpage(prevPage => prevPage + 1)}>Next</button>
             </div>
         </div>
-  )
+    )
 }
