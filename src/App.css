@@ -256,16 +256,35 @@ input:focus {
   padding: 50px;
   margin: 30px;
 }
-.progress {
+/* .progress {
   width: 100%;
   height: 20px;
-  background-color: #eee;
+  background-color: #9ae077;
   border-radius: 10px;
-  overflow: hidden;
-}
+   
+} */
 
 .progress-bar {
   height: 100%;
   background-color: #4caf50;
   transition: width 0.3s ease;
 }
+
+.progress {
+  width: 100%;
+  height: 20px;
+  background: #447e25;
+  position: relative; /* IMPORTANT */
+}
+
+.progress::before {
+  content: "";               /* MUST */
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+/* Domestic policy can only defeat us; foreign policy can kill us- President John F. Kennedy */

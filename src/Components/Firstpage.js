@@ -1,30 +1,26 @@
 import React from 'react'
-import js from "../assets/js.png"
-import php from "../assets/php.png"
-import pythone from "../assets/pythone.jpg"
+import { firstpageData } from './Data'
 
-export default function Firstpage({setpage}) {
+export default function Firstpage({ setpage, surveyData, setsurveyData }) {
     return (
         <div className='container'>
-           
+
             <h2 className='title-text'>Which Programming Language do you love?</h2>
             <div className='card_container'>
-                <div className='card'>
-                    <img src={js} alt="javascript" />
-                    <p>Javascrt</p>
-                </div>
-                <div className='card'>
-                    <img src={php} alt="php" />
-                    <p>Php</p>
-                </div>
-                <div className='card'>
-                    <img src={pythone} alt="Pythone" />
-                    <p>Pythone</p>
-                </div>
+                {
+                    firstpageData.map(items => (
+                        <div className='card' style={{border:surveyData.language === items.name ? "2px solid gray":""}} onClick={()=>setsurveyData({...surveyData, language:items.name})}>
+                            <img src={items.img} alt={items.chanelname} />
+                            <p>{items.name}</p>
+                        </div>
+                    ))
+                }
+
+
             </div>
             <div className='btn_container prevnext'>
                 <button className='btn-modal'>Prev</button>
-                <button className='btn-modal' onClick={()=>setpage(prevPage=>prevPage+1)}>Next</button>
+                <button className='btn-modal' onClick={() => setpage(prevPage => prevPage + 1)}>Next</button>
             </div>
         </div>
     )

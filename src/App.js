@@ -46,6 +46,12 @@ function App() {
   const [showmodal, setShowModal] = useState(false);
   const [dataitems, setdataItems] = useState(data);
   let [page, setpage] = useState(1);
+  let [surveyData, setsurveyData]=useState({
+    language:"",
+    experience:0,
+    favouritechanel:[]
+  })
+
   const handleDelete = (id) => {
     console.log(id);
     const filterlistitem = dataitems.filter(item => item.id !== id);
@@ -83,7 +89,7 @@ function App() {
        
         </div>
         {
-          page === 1 && <Firstpage setpage={setpage} page={page} />
+          page === 1 && <Firstpage setpage={setpage} page={page} surveyData={surveyData} setsurveyData={setsurveyData}/>
         }
         {
           page === 2 && <Secondpage setpage={setpage} />
